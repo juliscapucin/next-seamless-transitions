@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-// import { motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 import { AppProvider } from "./../data/context";
 
@@ -82,7 +82,7 @@ export default function Layout({ title, keywords, description, children }) {
           <AppProvider>
             <Header />
             {children}
-            <Footer />
+            {/* <Footer /> */}
           </AppProvider>
         </React.StrictMode>
       </main>
