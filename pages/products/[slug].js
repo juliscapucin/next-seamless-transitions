@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/router";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 import products from "./../../data/products";
@@ -10,19 +10,29 @@ export default function Products({ product }) {
   return (
     <Layout>
       <section className='page-container'>
-        <div className='page-main-image-container'>
+        <motion.div
+          className='page-main-image-container'
+          layout
+          layoutId={`${product.id}`}
+          transition={{
+            // type: "crossfade",
+            layout: {
+              duration: 0.5,
+            },
+          }}
+        >
           <div className='page-main-image'>
-            <Image
-              // className={styles.img1}
+            <img src={product.url} alt={product.name} />
+            {/* <Image
               src={product.url}
               alt={product.name}
               layout='fill'
               objectFit='cover'
               objectPosition='center center'
               priority
-            ></Image>
+            /> */}
           </div>
-        </div>
+        </motion.div>
 
         <article className='page-text-container'>
           <div className='page-title'>
