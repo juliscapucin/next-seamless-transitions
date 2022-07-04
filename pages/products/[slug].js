@@ -15,7 +15,7 @@ export default function Products({ product }) {
           layout
           layoutId={`${product.id}`}
           transition={{
-            // type: "crossfade",
+            type: "crossfade",
             layout: {
               duration: 0.5,
             },

@@ -162,14 +162,14 @@ Product Item
 */
 
 .productItem-container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
   z-index: 0;
 
   .productItem-img-container {
     width: 100%;
-    height: 13rem;
+    height: 11.1rem;
 
     .productItem-img {
       position: relative;
