@@ -19,11 +19,11 @@ export default function Header() {
             router.push("/", undefined, {
               shallow: true,
             });
-          }, 1000);
+          }, 500);
         }}
       >
         <div className='photo-gallery-user-name'>
-          <h1>Unsplash Prime</h1>
+          <h1>Green Prime</h1>
         </div>
       </a>
     </header>

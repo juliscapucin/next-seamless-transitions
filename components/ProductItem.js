@@ -29,7 +29,7 @@ export default function ProductItem({
         (id !== clickedProduct && { opacity: 0 },
         id === ids[0] && { zIndex: 98 })
       }
-      transition={{ duration: 1 }}
+      transition={{ duration: 0.5, type: "easeInOut" }}
     >
       <motion.div
         ref={refProductItem}
@@ -76,7 +76,7 @@ export default function ProductItem({
         </div>
       </motion.div>
 
-      <div className='productItem-text'>
+      {/* <div className='productItem-text'>
         <Link href={`products/${slug}`}>
           <a>
             <div className='productItem-title-container'>
@@ -84,7 +84,7 @@ export default function ProductItem({
             </div>
           </a>
         </Link>
-      </div>
+      </div> */}
     </motion.article>
   );
 }
