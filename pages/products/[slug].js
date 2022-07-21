@@ -11,7 +11,7 @@ import TransitionPage from "../../components/TransitionPage";
 import ids from "./../../data/ids";
 
 export default function Products({ product }) {
-  const { id, url, name } = product;
+  const { id, url, name, plant } = product;
 
   return (
     <Layout>
@@ -44,7 +44,7 @@ export default function Products({ product }) {
 
           <article className='page-text-container'>
             <div className='page-title'>
-              <h3>Joe Geek</h3>
+              <h3>{plant}</h3>
             </div>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam
