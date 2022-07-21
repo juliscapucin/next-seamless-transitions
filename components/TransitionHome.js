@@ -1,23 +1,14 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
 import { motion } from "framer-motion";
 
 import Image from "next/image";
 
-import products from "./../../data/products";
+import Layout from "./Layout";
 
-import Layout from "./../../components/Layout";
-import TransitionPage from "../../components/TransitionPage";
-
-import ids from "./../../data/ids";
-
-export default function Products({ product }) {
-  const { id, url, name } = product;
-
+export default function TransitionHome({ id, url, name, slug }) {
   return (
     <Layout>
-      <TransitionPage {...product} />
       <section className='page-container-outer'>
-        <section className='page-container-inner'>
+        <div className='page-container-inner'>
           <motion.div
             className='page-main-image-container'
             layout
@@ -31,14 +22,6 @@ export default function Products({ product }) {
           >
             <div className='page-main-image'>
               <img src={url} alt={name} />
-              {/* <Image
-              src={url}
-              alt={name}
-              layout='fill'
-              objectFit='cover'
-              objectPosition='center center'
-              priority
-            /> */}
             </div>
           </motion.div>
 
@@ -65,30 +48,8 @@ export default function Products({ product }) {
               consectetur voluptas, optio quidem, quod obcaecati modi.
             </p>
           </article>
-        </section>
+        </div>
       </section>
     </Layout>
   );
-}
-
-// GET STATIC PATHS
-// ----------------
-export async function getStaticPaths() {
-  // const { data } = products;
-
-  const paths = products.map((item) => ({
-    params: { slug: item.slug },
-  }));
-
-  return { paths, fallback: false };
-}
-
-// GET STATIC PROPS
-// ----------------
-export async function getStaticProps({ params: { slug } }) {
-  // const { data } = products;
-
-  const productsData = products.filter((item) => item.slug === slug);
-
-  return { props: { product: productsData[0] }, revalidate: 1 };
 }

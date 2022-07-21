@@ -1,7 +1,7 @@
-import { AnimatePresence } from "framer-motion";
+// import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 
-import "../styles/globals.scss";
+import "../styles/index.scss";
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

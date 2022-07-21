@@ -30,19 +30,22 @@ Global Styles
 
 html {
   scroll-behavior: smooth;
+  font-size: 62.5%;
 }
 
 body {
   overscroll-behavior-y: none;
-  font-family: $font-secondary, sans-serif;
-  line-height: 1.8;
-  font-size: 0.875rem;
+  font-family: $font-primary, sans-serif;
+  line-height: 1;
   font-weight: 100;
+  font-size: 1.6rem;
   background-color: $clr-white;
 }
+
 ul {
   list-style-type: disc;
 }
+
 a {
   color: $clr-black;
   text-decoration: none;
@@ -56,234 +59,28 @@ h2,
 h3,
 h4 {
   font-family: $font-primary, sans-serif;
-  font-weight: 200;
+  font-weight: 100;
   letter-spacing: $spacing;
   text-transform: capitalize;
   line-height: 0.8;
   margin-bottom: 0.75rem;
 }
 h1 {
-  font-size: clamp(4rem, 6vw, 6rem);
+  font-size: clamp(5rem, 7vw, 7rem);
 }
 h2 {
-  font-size: clamp(3rem, 4vw, 4rem);
+  font-size: clamp(4rem, 5vw, 5rem);
 }
 h3 {
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-size: clamp(3rem, 4vw, 4rem);
+  font-weight: 200;
 }
 h4 {
-  font-size: clamp(1rem, 2vw, 2rem);
+  font-size: clamp(2rem, 2.5vw, 2.5rem);
+  font-weight: 200;
 }
 p {
-  font-family: $font-secondary, sans-serif;
-  font-weight: 100;
+  font-weight: 200;
+  line-height: 1.8;
   margin-bottom: 1.25rem;
-}
-
-.main-container {
-  width: 100vw;
-  // height: 100vh;
-}
-
-/*
-============================================================ 
-TRANSITIONS
-============================================================
-*/
-
-.photo-gallery-in {
-  opacity: 1;
-}
-
-.photo-gallery-out {
-  opacity: 0;
-}
-
-/*
-=============== 
-Header
-===============
-*/
-header {
-  position: fixed;
-  transform: rotate(-90deg) translateX(-100%);
-  transform-origin: top left;
-  padding: 2rem;
-  z-index: 1;
-  .photo-gallery-user-name {
-    opacity: 100%;
-    transition: opacity 0.3s linear;
-
-    h1 {
-      color: $clr-black;
-      text-align: right;
-      font-weight: 100;
-      font-size: clamp(2rem, 5vw, 5rem);
-    }
-
-    &:hover {
-      opacity: 50%;
-      transition: opacity 0.3s linear;
-    }
-  }
-}
-
-/*
-=============== 
-Main
-===============
-*/
-
-main {
-  width: 100vw;
-  min-height: 100vh;
-  // overflow: hidden;
-}
-
-/*
-=============== 
-Product List
-===============
-*/
-
-.productList-container {
-  width: 100%;
-  min-height: 100%;
-  padding: 4rem 4rem 4rem 8rem;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 2rem;
-}
-
-/*
-=============== 
-Product Item
-===============
-*/
-
-.productItem-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  z-index: 0;
-
-  .productItem-img-container {
-    width: 100%;
-    height: 11.1rem;
-
-    .productItem-img {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      cursor: pointer;
-
-      img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-    }
-  }
-
-  .productItem-title-container {
-    margin: 0.8rem auto;
-  }
-}
-
-/*
-=============== 
-Footer
-===============
-*/
-
-footer {
-  width: 100vw;
-  height: 13rem;
-  padding: 2rem;
-
-  ul {
-    list-style-type: none;
-  }
-
-  a {
-    text-decoration: none;
-    text-decoration: underline;
-    text-decoration-color: $clr-white;
-    color: $clr-black;
-    transition: 0.3s;
-    &:hover {
-      text-decoration-color: $clr-black;
-    }
-  }
-
-  @media screen and (min-width: 992px) {
-    padding-left: 50vw;
-    display: flex;
-
-    .socials {
-      margin-left: 15rem;
-    }
-  }
-}
-
-/*
-=============== 
-Product Page
-===============
-*/
-
-.page-container-outer {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-
-  .fake-products {
-    position: absolute;
-    z-index: -1;
-  }
-
-  .page-container-inner {
-    position: absolute;
-    width: 93.5vw;
-    top: 0;
-    left: auto;
-    right: 0;
-    padding: 0 2rem;
-    z-index: 1;
-
-    .page-main-image-container {
-      width: 100%;
-      height: 49.1rem;
-      overflow: hidden;
-
-      .page-main-image {
-        position: relative;
-        width: 100%;
-        height: 100%;
-
-        img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          transition: 1s;
-        }
-      }
-    }
-
-    .page-text-container {
-      width: 50%;
-      padding: 3rem 4rem 5rem 0;
-      margin: 0 0 0 auto;
-      .page-title {
-        margin: 2rem 0;
-      }
-      h3 {
-        font-weight: 100;
-      }
-    }
-  }
 }

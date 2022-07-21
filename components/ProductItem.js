@@ -1,26 +1,33 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useRouter } from "next/router";
 
 import Link from "next/link";
 import Image from "next/image";
 
 import ids from "./../data/ids";
 
-export default function ProductItem({ id, slug, name, url }) {
+export default function ProductItem({
+  id,
+  slug,
+  name,
+  url,
+  setProductPage,
+  setShowProductPage,
+}) {
   const [clickedProduct, setClickedProduct] = useState(0);
   const refProductItem = useRef(null);
-
-  console.log(ids);
+  const router = useRouter();
 
   return (
     <motion.article
       key={id}
       className='productItem-container'
-      initial={id === ids[0] && { zIndex: 1000 }}
-      animate={id === ids[0] && { zIndex: 1000 }}
+      initial={id === ids[0] && { zIndex: 98 }}
+      animate={id === ids[0] && { zIndex: 98 }}
       exit={
         (id !== clickedProduct && { opacity: 0 },
-        id === ids[0] && { zIndex: 1000 })
+        id === ids[0] && { zIndex: 98 })
       }
       transition={{ duration: 1 }}
     >
@@ -40,20 +47,24 @@ export default function ProductItem({ id, slug, name, url }) {
           transition: { duration: 0.5 },
         }}
       >
-        <Link href={`products/${slug}`}>
-          <div
-            className='productItem-img'
-            onClick={() => {
-              ids[0] = id;
-              setClickedProduct(id);
-            }}
-          >
-            <img
-              // as={motion.div}
-              src={url}
-              alt={name}
-            />
-            {/* <Image
+        <div
+          className='productItem-img'
+          onClick={() => {
+            ids[0] = id;
+            setClickedProduct(id);
+            setProductPage({ name, id, url, slug });
+            setShowProductPage(true);
+            router.push(`/products/${slug}`, undefined, {
+              shallow: true,
+            });
+          }}
+        >
+          <img
+            // as={motion.div}
+            src={url}
+            alt={name}
+          />
+          {/* <Image
               // as={motion.div}
               src={url}
               alt={name}
@@ -62,8 +73,7 @@ export default function ProductItem({ id, slug, name, url }) {
               objectPosition='center center'
               priority
             /> */}
-          </div>
-        </Link>
+        </div>
       </motion.div>
 
       <div className='productItem-text'>

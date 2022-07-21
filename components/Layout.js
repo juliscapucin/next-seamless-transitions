@@ -7,42 +7,6 @@ import { AppProvider } from "./../data/context";
 import Header from "./Header";
 import Footer from "./Footer";
 
-const opacityTransitionVariants = {
-  hidden: { opacity: 1 },
-  visible: {
-    opacity: 1,
-  },
-  exit: { opacity: 1 },
-};
-
-const opacity2TransitionVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-  },
-  exit: { opacity: 0, transition: { duration: 0.1 } },
-};
-
-const transitionContainerVariants = {
-  visible: {
-    x: 0,
-    transition: { duration: 0.2, staggerChildren: 0.1 },
-  },
-  exit: {
-    x: 0,
-    transition: { duration: 0.2, staggerChildren: 0.1 },
-  },
-};
-
-const transitionVariants = {
-  hidden: { x: "0%" },
-  visible: {
-    x: "-100%",
-    transition: { duration: 0.2, ease: "easeInOut" },
-  },
-  exit: { x: "0%", transition: { duration: 0.1, ease: "easeInOut" } },
-};
-
 export default function Layout({ title, keywords, description, children }) {
   const router = useRouter();
 
@@ -76,15 +40,13 @@ export default function Layout({ title, keywords, description, children }) {
         <meta name='theme-color' content='#ffffff' />
       </Head>
 
-      <main className='main-container'>
-        <React.StrictMode>
-          <AppProvider>
-            <Header />
-            {children}
-            {/* <Footer /> */}
-          </AppProvider>
-        </React.StrictMode>
-      </main>
+      <React.StrictMode>
+        <AppProvider>
+          <Header />
+          <main className='main-container'>{children}</main>
+          {/* <Footer /> */}
+        </AppProvider>
+      </React.StrictMode>
     </>
   );
 }

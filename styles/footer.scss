@@ -1,0 +1,29 @@
+footer {
+  width: 100vw;
+  height: 13rem;
+  padding: 2rem;
+
+  ul {
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+    text-decoration: underline;
+    text-decoration-color: $clr-white;
+    color: $clr-black;
+    transition: 0.3s;
+    &:hover {
+      text-decoration-color: $clr-black;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    padding-left: 50vw;
+    display: flex;
+
+    .socials {
+      margin-left: 15rem;
+    }
+  }
+}

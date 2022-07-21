@@ -1,0 +1,23 @@
+header {
+  position: fixed;
+  transform: rotate(-90deg) translateX(-100%);
+  transform-origin: top left;
+  padding: 2rem 3.5rem;
+  cursor: pointer;
+  z-index: 100;
+
+  .photo-gallery-user-name {
+    opacity: 100%;
+    transition: opacity 0.3s linear;
+
+    h1 {
+      color: $clr-black;
+      text-align: right;
+    }
+
+    &:hover {
+      opacity: 50%;
+      transition: opacity 0.3s linear;
+    }
+  }
+}

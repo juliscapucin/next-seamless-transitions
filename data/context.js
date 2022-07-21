@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect, useMemo } from "react";
+import React, { useState, useContext } from "react";
 
 import products from "./products";
 
@@ -7,18 +7,22 @@ const AppContext = React.createContext();
 const AppProvider = ({ children }) => {
   const [allProducts] = useState(products);
   const [idSelected, setIdSelected] = useState(0);
+  const [showHome, setShowHome] = useState(false);
 
-  const contextValue = useMemo(
-    () => ({
-      allProducts,
-      idSelected,
-      setIdSelected,
-    }),
-    [allProducts, idSelected, setIdSelected]
-  );
+  const contextValue = {
+    allProducts,
+    idSelected,
+    setIdSelected,
+    showHome,
+    setShowHome,
+  };
 
   return (
-    <AppContext.Provider value={contextValue}>{children}</AppContext.Provider>
+    <AppContext.Provider
+      value={{ allProducts, idSelected, setIdSelected, showHome, setShowHome }}
+    >
+      {children}
+    </AppContext.Provider>
   );
 };
 
