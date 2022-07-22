@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useContext } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import Image from "next/image";
@@ -7,8 +7,6 @@ import products from "./../../data/products";
 
 import Layout from "./../../components/Layout";
 import TransitionPage from "../../components/TransitionPage";
-
-import ids from "./../../data/ids";
 
 export default function Products({ product }) {
   const { id, url, name, plant } = product;

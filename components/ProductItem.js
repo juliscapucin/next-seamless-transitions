@@ -2,22 +2,18 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 
+import { useGlobalContext } from "./../data/context";
+
 import Link from "next/link";
 import Image from "next/image";
 
 import ids from "./../data/ids";
 
-export default function ProductItem({
-  id,
-  slug,
-  name,
-  url,
-  setProductPage,
-  setShowProductPage,
-}) {
+export default function ProductItem({ id, slug, name, url }) {
   const [clickedProduct, setClickedProduct] = useState(0);
   const refProductItem = useRef(null);
   const router = useRouter();
+  const { setShowPage, setProductPage } = useGlobalContext();
 
   return (
     <motion.article
@@ -47,24 +43,25 @@ export default function ProductItem({
           transition: { duration: 0.5 },
         }}
       >
-        <div
-          className='productItem-img'
-          onClick={() => {
-            ids[0] = id;
-            setClickedProduct(id);
-            setProductPage({ name, id, url, slug });
-            setShowProductPage(true);
-            router.push(`/products/${slug}`, undefined, {
-              shallow: true,
-            });
-          }}
-        >
-          <img
-            // as={motion.div}
-            src={url}
-            alt={name}
-          />
-          {/* <Image
+        <Link href={`/products/${slug}`}>
+          <div
+            className='productItem-img'
+            onClick={() => {
+              ids[0] = id;
+              setClickedProduct(id);
+              setProductPage({ name, id, url, slug });
+              setShowPage(true);
+              // router.push(`/products/${slug}`, undefined, {
+              //   shallow: true,
+              // });
+            }}
+          >
+            <img
+              // as={motion.div}
+              src={url}
+              alt={name}
+            />
+            {/* <Image
               // as={motion.div}
               src={url}
               alt={name}
@@ -73,7 +70,8 @@ export default function ProductItem({
               objectPosition='center center'
               priority
             /> */}
-        </div>
+          </div>
+        </Link>
       </motion.div>
 
       {/* <div className='productItem-text'>

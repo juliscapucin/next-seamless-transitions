@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 
-import { useGlobalContext } from "./../data/context";
+import { useGlobalContext } from "../data/context";
 
 import Image from "next/image";
 
@@ -34,10 +34,7 @@ export default function TransitionPage({ id, url, name, slug }) {
         transition={{ ease: "easeInOut", duration: 0.5 }}
       >
         <div className='page-container-inner'>
-          <div
-            className='page-main-image-container'
-            // data-isOn={showHome}
-          >
+          <div className='page-main-image-container'>
             <div className='page-main-image'>
               <img src={url} alt={name} />
             </div>

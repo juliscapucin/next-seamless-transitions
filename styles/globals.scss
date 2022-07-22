@@ -29,12 +29,15 @@ Global Styles
 }
 
 html {
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
   font-size: 62.5%;
 }
 
 body {
   overscroll-behavior-y: none;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
   font-family: $font-primary, sans-serif;
   line-height: 1;
   font-weight: 100;
