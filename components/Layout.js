@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 
-import { AppProvider } from "./../data/context";
+import { AppProvider } from "../data/context";
 
 import Header from "./Header";
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import { useGlobalContext } from "./../data/context";
+import { useGlobalContext } from "../data/context";
 
 import ProductItem from "./ProductItem";
 import TransitionHome from "./TransitionHome";
@@ -13,8 +13,10 @@ export default function ProductsList() {
     <>
       <TransitionHome {...productPage} />
       <section className='productList-container'>
-        {allProducts.map((item) => {
-          return <ProductItem key={item.id} {...item} product={item} />;
+        {allProducts.map((item, index) => {
+          return (
+            <ProductItem key={item.id} {...item} product={item} index={index} />
+          );
         })}
       </section>
     </>

@@ -4,7 +4,7 @@ import Layout from "../components/Layout";
 
 import ProductsList from "../components/ProductsList";
 
-import scroll from "./../data/scroll";
+import scroll from "../data/scroll";
 
 export default function Home() {
   const refHome = useRef(null);
