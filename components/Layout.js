@@ -4,45 +4,10 @@ import { useRouter } from "next/router";
 
 import { AppProvider } from "./../data/context";
 
-import scroll from "./../data/scroll";
-
 import Header from "./Header";
-import Footer from "./Footer";
 
 export default function Layout({ title, keywords, description, children }) {
   const router = useRouter();
-  const refLayout = useRef(null);
-  const [scrollRef, setScrollRef] = useState(false);
-
-  useEffect(() => {
-    if (refLayout) {
-      setScrollRef(true);
-    }
-  }, [refLayout]);
-
-  useEffect(() => {
-    const getPosition = () => {
-      const currentScroll = refLayout.current.scrollTop;
-      console.log(currentScroll);
-
-      if (currentScroll !== 0) {
-        scroll = currentScroll;
-      }
-    };
-
-    refLayout.current.addEventListener("scroll", getPosition);
-
-    // return () => {
-    //   refLayout.current.removeEventListener("scroll", getPosition);
-    // };
-  }, [scrollRef]);
-
-  useEffect(() => {
-    // console.log(router.pathname);
-    if (router.pathname === "/") {
-      refLayout.current.scrollTo(0, scroll);
-    }
-  }, []);
 
   return (
     <>
@@ -77,10 +42,7 @@ export default function Layout({ title, keywords, description, children }) {
       <React.StrictMode>
         <AppProvider>
           <Header />
-          <main className='main-container' ref={refLayout}>
-            {children}
-          </main>
-          {/* <Footer /> */}
+          <main className='main-container'>{children}</main>
         </AppProvider>
       </React.StrictMode>
     </>

@@ -10,22 +10,49 @@ import TransitionPage from "../../components/TransitionPage";
 
 export default function Products({ product }) {
   const { id, url, name, plant } = product;
+  const refPage = useRef(null);
+  const [scrollRef, setScrollRef] = useState(false);
+  const [scrollPos, setScrollPos] = useState(0);
+  const [backHome, setBackHome] = useState(false);
+
+  useEffect(() => {
+    if (refPage) {
+      setScrollRef(true);
+    }
+  }, [refPage]);
+
+  useEffect(() => {
+    const getPosition = () => {
+      const currentScroll = refPage.current.scrollTop;
+      console.log(currentScroll);
+
+      if (currentScroll !== 0) {
+        setScrollPos(currentScroll);
+      }
+    };
+
+    refPage.current.addEventListener("scroll", getPosition);
+
+    // return () => {
+    //   refPage.current.removeEventListener("scroll", getPosition);
+    // };
+  }, [scrollRef]);
 
   return (
     <Layout>
-      <TransitionPage {...product} />
-      <section className='page-container-outer'>
+      <TransitionPage
+        {...product}
+        scrollPos={scrollPos}
+        setBackHome={setBackHome}
+      />
+      <section className='page-container-outer' ref={refPage}>
         <section className='page-container-inner'>
-          <motion.div
+          <div
             className='page-main-image-container'
-            layout
-            layoutId={`${id}`}
-            transition={{
-              type: "crossfade",
-              layout: {
-                duration: 0.5,
-              },
-            }}
+            // style={{
+            //   transform: backHome && `translateY(${scrollPos}px)`,
+            //   transition: "transform 0.5s ease-in-out",
+            // }}
           >
             <div className='page-main-image'>
               <img src={url} alt={name} />
@@ -38,7 +65,7 @@ export default function Products({ product }) {
               priority
             /> */}
             </div>
-          </motion.div>
+          </div>
 
           <article className='page-text-container'>
             <div className='page-title'>

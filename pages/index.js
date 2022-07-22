@@ -7,29 +7,40 @@ import ProductsList from "../components/ProductsList";
 import scroll from "./../data/scroll";
 
 export default function Home() {
-  // useEffect(() => {
-  //   const getPosition = () => {
-  //     const currentScroll = window.pageYOffset;
+  const refHome = useRef(null);
+  const [scrollRef, setScrollRef] = useState(false);
 
-  //     if (currentScroll !== 0) {
-  //       scroll = currentScroll;
-  //     }
-  //   };
+  useEffect(() => {
+    if (refHome) {
+      setScrollRef(true);
+    }
+  }, [refHome]);
 
-  //   window.addEventListener("scroll", getPosition);
+  useEffect(() => {
+    const getPosition = () => {
+      const currentScroll = refHome.current.scrollTop;
 
-  //   return () => {
-  //     window.removeEventListener("scroll", getPosition);
-  //   };
-  // });
+      if (currentScroll !== 0) {
+        scroll = currentScroll;
+      }
+    };
 
-  // useEffect(() => {
-  //   window.scrollTo(0, scroll);
-  // }, []);
+    refHome.current.addEventListener("scroll", getPosition);
+
+    // return () => {
+    //   refHome.current.removeEventListener("scroll", getPosition);
+    // };
+  }, [scrollRef]);
+
+  useEffect(() => {
+    refHome.current.scrollTo(0, scroll);
+  }, []);
 
   return (
     <Layout>
-      <ProductsList />
+      <div className='home-container' ref={refHome}>
+        <ProductsList />
+      </div>
     </Layout>
   );
 }

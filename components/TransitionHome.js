@@ -17,6 +17,12 @@ export default function TransitionHome({ id, url, name, slug }) {
             className='page-main-image-container'
             layout
             layoutId={`${id}`}
+            transition={{
+              type: "crossfade",
+              layout: {
+                duration: 0.5,
+              },
+            }}
           >
             <div className='page-main-image'>
               <img src={url} alt={name} />
