@@ -57,6 +57,7 @@ export default function ProductItem({ id, slug, name, url, index }) {
             setShowPage(true);
             router.push(`/products/${slug}`, undefined, {
               shallow: true,
+              scroll: false,
             });
           }}
         >

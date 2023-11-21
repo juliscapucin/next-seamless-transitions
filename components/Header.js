@@ -18,6 +18,7 @@ export default function Header() {
           setTimeout(() => {
             router.push("/", undefined, {
               shallow: true,
+              scroll: false,
             });
           }, 500);
         }}
