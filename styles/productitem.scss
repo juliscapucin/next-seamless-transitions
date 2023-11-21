@@ -4,12 +4,13 @@
   flex-direction: column;
   justify-content: flex-start;
   z-index: 0;
-  height: 21rem;
+  height: 30vh;
+  // overflow: hidden;
 
   .productItem-img-container {
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    
 
     .productItem-img {
       position: relative;

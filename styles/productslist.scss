@@ -1,8 +1,6 @@
 .productList-container {
-  width: 100%;
-  padding: 4rem 4rem 4rem 8vw;
+  margin: 4rem 4rem 4rem 8vw;
   display: grid;
-  // grid-template-columns: repeat(2, 1fr);
   grid-template-columns: repeat(25, 1fr);
   grid-template-rows: repeat(20, 1fr);
   gap: 2rem;

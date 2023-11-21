@@ -39,12 +39,12 @@ export default function Layout({ title, keywords, description, children }) {
         <meta name='theme-color' content='#ffffff' />
       </Head>
 
-      <React.StrictMode>
+
         <AppProvider>
           <Header />
           <main className='main-container'>{children}</main>
         </AppProvider>
-      </React.StrictMode>
+
     </>
   );
 }

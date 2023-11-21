@@ -25,7 +25,7 @@ export default function Home() {
       }
     };
 
-    refHome.current.addEventListener("scroll", getPosition);
+    // refHome.current.addEventListener("scroll", getPosition);
 
     // return () => {
     //   refHome.current.removeEventListener("scroll", getPosition);

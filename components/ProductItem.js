@@ -48,7 +48,7 @@ export default function ProductItem({ id, slug, name, url, index }) {
         }}
       >
         {/* <Link href={`/products/${slug}`}> */}
-        <div
+        <button
           className='productItem-img'
           onClick={() => {
             ids[0] = id;
@@ -60,12 +60,8 @@ export default function ProductItem({ id, slug, name, url, index }) {
             });
           }}
         >
-          <img
-            // as={motion.div}
-            src={url}
-            alt={name}
-          />
-          {/* <Image
+
+          <Image
               // as={motion.div}
               src={url}
               alt={name}
@@ -73,8 +69,8 @@ export default function ProductItem({ id, slug, name, url, index }) {
               objectFit='cover'
               objectPosition='center center'
               priority
-            /> */}
-        </div>
+            />
+        </button>
         {/* </Link> */}
       </motion.div>
 
